@@ -3,6 +3,7 @@
     <router-link :to="{ name: 'home' }">Home</router-link>
     <router-link to="/categorias">Categorias</router-link>
     <router-link to="/marcas">Marcas</router-link>
+    <router-link to="/cores">Cores</router-link>
   </header>
   <main>
     <RouterView />
