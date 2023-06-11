@@ -3,6 +3,7 @@ import AcessorioView from '../views/AcessorioView.vue';
 import HomeView from '../views/HomeView.vue';
 import CategoriaView from '../views/CategoriaView.vue';
 import MarcaView from '../views/MarcaView.vue';
+import ModeloView from '../views/ModeloView.vue';
 import CorView from '../views/CorView.vue';
 
 const router = createRouter({
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/acessorios',
       name: 'acessorios',
       component: AcessorioView,
+    },
+    {
+      path: '/modelos',
+      name: 'modelos',
+      component: ModeloView,
     },
   ],
 });

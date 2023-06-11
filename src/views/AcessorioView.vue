@@ -9,7 +9,7 @@ export default {
     };
   },
   async created() {
-    this.acessorios = await acessoriosApi.buscarTodasOsAcessorios();
+    this.acessorios = await acessoriosApi.buscarTodosOsAcessorios();
   },
   methods: {
     async salvar() {
@@ -19,14 +19,14 @@ export default {
         await acessoriosApi.adicionarAcessorio(this.acessorio);
       }
       this.acessorio = {};
-      this.acessorios = await acessoriosApi.buscarTodasOsAcessorios();
+      this.acessorios = await acessoriosApi.buscarTodosOsAcessorios();
     },
     editar(acessorio) {
       Object.assign(this.acessorio, acessorio);
     },
     async excluir(acessorio) {
       await acessoriosApi.excluirAcessorio(acessorio.id);
-      this.acessorios = await acessoriosApi.buscarTodasOsAcessorios();
+      this.acessorios = await acessoriosApi.buscarTodosOsAcessorios();
     },
   },
 };

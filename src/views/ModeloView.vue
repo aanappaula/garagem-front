@@ -1,51 +1,51 @@
 <script>
-import MarcasApi from "@/api/marca";
-const marcasApi = new MarcasApi();
+import ModelosApi from "@/api/modelo";
+const modelosApi = new ModelosApi();
 export default {
   data() {
     return {
-      marcas: [],
-      marca: {},
+      modelos: [],
+      modelo: {},
     };
   },
   async created() {
-    this.marcas = await marcasApi.buscarTodasAsMarcas();
+    this.modelos = await modelosApi.buscarTodosOsModelos();
   },
   methods: {
     async salvar() {
-      if (this.marca.id) {
-        await marcasApi.atualizarMarca(this.marca);
+      if (this.modelo.id) {
+        await modelosApi.atualizarModelo(this.modelo);
       } else {
-        await marcasApi.adicionarMarca(this.marca);
+        await modelosApi.adicionarModelo(this.modelo);
       }
-      this.marca = {};
-      this.marcas = await marcasApi.buscarTodasAsMarcas();
+      this.modelo = {};
+      this.modelos = await modelosApi.buscarTodosOsModelos();
     },
-    editar(marca) {
-      Object.assign(this.marca, marca);
+    editar(modelo) {
+      Object.assign(this.modelo, modelo);
     },
-    async excluir(marca) {
-      await marcasApi.excluirMarca(marca.id);
-      this.marcas = await marcasApi.buscarTodasAsMarcas();
+    async excluir(modelo) {
+      await modelosApi.excluirModelo(modelo.id);
+      this.modelos = await modelosApi.buscarTodosOsModelos();
     },
   },
 };
 </script>
 
 <template>
-  <h1>Marca</h1>
+  <h1>Modelo</h1>
   <hr />
   <div class="form">
-    <input type="text" v-model="marca.nome" placeholder="Nome" />
+    <input type="text" v-model="modelo.descricao" placeholder="Nome" />
     <button @click="salvar">Salvar</button>
   </div>
   <hr />
   <ul>
-    <li v-for="marca in marcas" :key="marca.id">
-      <span @click="editar(marca)">
-        ({{ marca.id }}) - {{ marca.nome }} -
+    <li v-for="modelo in modelos" :key="modelo.id">
+      <span @click="editar(modelo)">
+        ({{ modelo.id }}) - {{ modelo.descricao }} -
       </span>
-      <button @click="excluir(marca)">X</button>
+      <button @click="excluir(modelo)">X</button>
     </li>
   </ul>
 </template>
