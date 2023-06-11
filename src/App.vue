@@ -6,6 +6,7 @@
     <router-link to="/cores">Cores</router-link>
     <router-link to="/acessorios">Acessorios</router-link>
     <router-link to="/modelos">Modelos</router-link>
+    <router-link to="/veiculos">Veiculos</router-link>
   </header>
   <main>
     <RouterView />
